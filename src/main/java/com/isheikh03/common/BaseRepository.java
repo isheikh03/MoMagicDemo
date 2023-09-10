@@ -11,13 +11,21 @@ public class BaseRepository {
 	@Autowired
 	private EntityManager entityManager;
 	
-	public <T> T baseSaveOrUpdate(T obj) {
+	public <T> T baseSave(T obj) {
+		try {
+			this.entityManager.persist(obj);
+			return obj;
+		} catch (Exception e) {
+//			e.printStackTrace();
+		}
+		return null;
+	}
+	public <T> T baseUpdate(T obj) {
 		try {
 			T objSaved = this.entityManager.merge(obj);
-			this.entityManager.flush();
 			return objSaved;
 		} catch (Exception e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
 		return null;
 	}
@@ -26,7 +34,7 @@ public class BaseRepository {
 		try {
 			return this.entityManager.createQuery(sql, clazz).getSingleResult();
 		} catch (Exception e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
 		return null;
 	}
@@ -35,7 +43,7 @@ public class BaseRepository {
 		try {
 			return entityManager.createQuery(sql, clazz).getResultList();
 		} catch (Exception e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
 		return null;
     }
@@ -44,7 +52,7 @@ public class BaseRepository {
 		try {
 			return entityManager.createQuery(sql, clazz).setMaxResults(limit).getResultList();
 		} catch (Exception e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
 		return null;
 	}

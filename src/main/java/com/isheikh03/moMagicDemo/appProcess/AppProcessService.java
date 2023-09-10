@@ -92,7 +92,8 @@ public class AppProcessService extends Thread {
 										ChargeFailLogEntity chargeFailLog = new ChargeFailLogEntity();
 										chargeFailLog.setSmsId(inboxSms.getId());
 										chargeFailLog.setChargeId(chargeConfig.getId());
-										chargeFailLog.setKeywordId(keywordDtl.getId());
+//										chargeFailLog.setKeywordId(keywordDtl.getId());
+										chargeFailLog.setKeywordId(chargeConfig.getId());
 										chargeFailLog.setMsisdn(inboxSms.getMsisdn());
 										chargeFailLog.setAmount(Integer.parseInt(amountStr));
 										chargeFailLog.setInsDate(new Date());

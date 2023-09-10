@@ -2,11 +2,14 @@ package com.isheikh03.moMagicDemo.inbox;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Repository;
 
 import com.isheikh03.common.BaseRepository;
 
 @Repository
+@Transactional
 public class InboxRepository extends BaseRepository {
 	
 	public List<InboxEntity> findListByLimit(int limit) {
@@ -14,7 +17,7 @@ public class InboxRepository extends BaseRepository {
 	}
 	
 	public InboxEntity updateStatus(InboxEntity inboxEntity) {
-		return super.baseSaveOrUpdate(inboxEntity);
+		return super.baseUpdate(inboxEntity);
 	}
 
 }
