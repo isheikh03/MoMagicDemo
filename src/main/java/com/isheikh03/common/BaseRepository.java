@@ -33,7 +33,6 @@ public class BaseRepository {
 	
 	public <T> List<T> baseFindList(String sql,  Class<T> clazz) {
 		try {
-//			"SELECT p FROM Passenger p ORDER BY p.seatNumber"
 			return entityManager.createQuery(sql, clazz).getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -43,7 +42,6 @@ public class BaseRepository {
 	
 	public <T> List<T> baseFindListByLimit(int limit, String sql,  Class<T> clazz) {
 		try {
-//			"SELECT p FROM Passenger p ORDER BY p.seatNumber"
 			return entityManager.createQuery(sql, clazz).setMaxResults(limit).getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
