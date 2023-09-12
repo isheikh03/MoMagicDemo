@@ -10,7 +10,7 @@ public class AppProcessScheduler {
 	@Autowired
 	public AppProcessService appTestingService;
 	
-	@Scheduled(fixedDelay = 1*30*1000)//Minute*Second*Millisecond
+	@Scheduled(fixedDelay = 1*15*1000)//Minute*Second*Millisecond
 	public void scheduleFixedDelayTask() {
 		appTestingService.appProcess();
 	}
